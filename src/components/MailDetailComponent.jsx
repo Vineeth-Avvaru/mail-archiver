@@ -10,7 +10,7 @@ function MailDetail(props) {
             <Link to="/mails" className="back-link"> <FontAwesomeIcon icon={faArrowLeft} /><b> back</b></Link>
             <div className="mail-content">
                 <div><b>From: </b>{props.mail.from}</div>
-                <div><b>To: </b>{props.mail.to.join("; ")}</div>
+    <div><b>To: </b>{props.mail.to.join("; ")}</div>
                 <div><b>Date: </b>{props.mail.date}</div>
                 <div><b>Subject: </b>{props.mail.subject}</div>
                 { props.mail.attachment ? <div><b>Attachments: </b></div> : <div></div>}

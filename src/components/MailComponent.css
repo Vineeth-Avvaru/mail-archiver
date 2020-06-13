@@ -4,13 +4,13 @@
     flex-direction: row;
     padding: 10px;
     border-bottom: 1px solid #BCB5B5;
-    text-decoration: none;
+    color: black;
 }
-
 .mail-body-container:hover {
     background-color: #F4F3F2;
     color: blue;
     cursor: pointer;
+    text-decoration: none;
 } 
 
 .email-from-body, .email-to-body {
@@ -19,12 +19,21 @@
 }
 
 .email-sub-body {
-    width: 50%;
+    width: 45%;
     padding-right: 10px;
     overflow: hidden;
+}
+
+.email-attachment-body {
+    width: 5%;
 }
 
 .email-date-body {
     width: 10%;
     overflow: hidden;
+}
+
+.icon-clip {
+    height: 18px;
+    width: auto;
 }

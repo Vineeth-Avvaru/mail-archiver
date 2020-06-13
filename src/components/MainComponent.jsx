@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Mail from "./MailComponent";
 import { Switch, Route, Redirect} from 'react-router-dom';
 import MailDetail from "./MailDetailComponent";
+import Mails from "../shared/mails";
 
 class Main extends React.Component {
 
@@ -14,27 +15,13 @@ class Main extends React.Component {
         this.state = {
             startDate: null,
             endDate: null,
-            mails: [
-                {
-                    from: "aaa1@example.com",
-                    to: "bbb@example.com",
-                    subject: "This is to inform you that you are winner for the lucky draw",
-                    date: "12/06/2020 10:45"
-                },
-                {
-                    from: "aaa2@example.com",
-                    to: "bbb@example.com",
-                    subject: "This is to inform you that you are winner for the lucky draw2",
-                    date: "12/06/2020 10:50"
-                }
-            ],
+            mails: Mails,
             searchMsg: ""
         }
     }
 
     setStartDate(date) {
         this.setState({ startDate: date });
-        console.log(this.state.startDate)
     }
 
     setEndDate(date) {
@@ -108,7 +95,6 @@ class Main extends React.Component {
         }
 
         const MailWithIndex = ({match}) => {
-            console.log(match);
             return(
                 <MailDetail mail={this.state.mails.filter((mails, index) => index === parseInt(match.params.mailIndex,10))[0]} />
             )

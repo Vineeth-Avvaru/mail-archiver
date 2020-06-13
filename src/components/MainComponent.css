@@ -1,0 +1,33 @@
+.header-container {
+    height: 20px;
+    background-color: grey;
+}
+.footer-container {
+    height: 20px;
+    background-color: grey;
+}
+.middle-container {
+    margin: 40px;
+    height: calc(100vh - 120px);
+}
+
+.search-container {
+    height: 10vh;
+}
+.results-bar {
+    width: calc(100% - 40px);
+    height: 5vh;
+    border-bottom: 1px solid grey;
+}
+
+.logo-container {
+    height: calc(85vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.app-logo {
+    display: block;
+    align-self: center;
+}

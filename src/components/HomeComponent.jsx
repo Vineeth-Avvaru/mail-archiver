@@ -8,17 +8,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import eOrderType from '../shared/enums/eOrderType';
 import { connect } from "react-redux";
-import { changeMailOrder } from "../redux/ActionCreators";
+import { changeMailOrder, setStartDate, setEndDate } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
         mails: state.mails,
-        order: state.order
+        order: state.order,
+        startDate: state.startDate,
+        endDate: state.endDate
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    changeMailOrder: ()=> {dispatch(changeMailOrder())}
+    changeMailOrder: ()=> {dispatch(changeMailOrder())},
+    setStartDate : (date) => {dispatch(setStartDate(date))},
+    setEndDate : (date) => {dispatch(setEndDate(date))}
 })
 
 class Home extends React.Component {
@@ -37,10 +41,6 @@ class Home extends React.Component {
         this.resetDate = this.resetDate.bind(this);
     }
 
-    setStartDate(date) {
-        this.setState({ startDate: date });
-    }
-
     setEndDate(date) {
         this.setState({ endDate: date }, () => {
             if (this.state.startDate != null) {
@@ -50,7 +50,6 @@ class Home extends React.Component {
                     let mailDate = new Date(mail.date).getTime();
                     return mailDate >= startTime && mailDate < endTime
                 })
-                console.log(mailResults);
                 this.setState({ mails: mailResults, dateFilteredMails: mailResults });
             }
         });
@@ -85,31 +84,31 @@ class Home extends React.Component {
                     <div className="date-container">
                         <DatePicker
                             placeholderText="START DATE"
-                            selected={this.state.startDate}
-                            onChange={date => this.setStartDate(date)}
+                            selected={this.props.startDate}
+                            onChange={date => this.props.setStartDate(date)}
                             selectsStart
                             peekNextMonth
                             showMonthDropdown
                             showYearDropdown
                             dropdownMode="select"
                             todayButton="Today"
-                            startDate={this.state.startDate}
-                            endDate={this.state.endDate}
+                            startDate={this.props.startDate}
+                            endDate={this.props.endDate}
                             maxDate={new Date()}
                         />
                         <DatePicker
                             placeholderText="END DATE"
-                            selected={this.state.endDate}
-                            onChange={date => this.setEndDate(date)}
+                            selected={this.props.endDate}
+                            onChange={date => this.props.setEndDate(date)}
                             selectsEnd
                             peekNextMonth
                             showMonthDropdown
                             showYearDropdown
                             dropdownMode="select"
                             todayButton="Today"
-                            startDate={this.state.startDate}
-                            endDate={this.state.endDate}
-                            minDate={this.state.startDate}
+                            startDate={this.props.startDate}
+                            endDate={this.props.endDate}
+                            minDate={this.props.startDate}
                             maxDate={new Date()}
                         />
                         <FontAwesomeIcon icon={faSync} className="refresh-icon" onClick={this.resetDate} />

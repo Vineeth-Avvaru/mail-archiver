@@ -94,7 +94,7 @@ class Home extends React.Component {
                             todayButton="Today"
                             startDate={this.props.startDate}
                             endDate={this.props.endDate}
-                            maxDate={new Date()}
+                            maxDate={this.props.endDate}
                         />
                         <DatePicker
                             placeholderText="END DATE"

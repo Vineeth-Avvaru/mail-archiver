@@ -52,12 +52,12 @@ class Home extends React.Component {
         let searchMessage = e.target.value;
         this.setState({ searchMsg: searchMessage})
         if(this.state.startDate ===null || this.state.endDate === null) {
-            let mailResults = this.props.mails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1);
+            let mailResults = this.props.mails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1 || mail.body.indexOf(searchMessage)!== -1);
             this.setState({mails: mailResults});
             if(searchMessage === "") this.setState({mails: this.props.mails});
         }
         else {
-            let mailResults = this.state.dateFilteredMails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1);
+            let mailResults = this.state.dateFilteredMails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1 || mail.body.indexOf(searchMessage)!== -1);
             this.setState({mails: mailResults});
             if(searchMessage === "") this.setState({mails: this.state.dateFilteredMails});
         }

@@ -8,7 +8,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function Mail(props) {
 
-    const archivesMails = props.mails.map((archivedMail, index) => {
+    const archivedMails = props.mails.map((archivedMail, index) => {
         return (
             <Link key={index} to={`/mails/${index}`} className="mail-body-container">
                 <span className="email-from-body">{archivedMail.from}</span>
@@ -38,7 +38,7 @@ function Mail(props) {
     })
     return (
         <div>
-            {archivesMails}
+            {archivedMails}
         </div>
     )
 }

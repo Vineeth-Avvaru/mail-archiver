@@ -57,6 +57,10 @@
     width: 10%;
 }
 
+.email-date:hover {
+    cursor: pointer;
+}
+
 .refresh-icon {
     color: #BCB5B5 ;
 }

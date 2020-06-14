@@ -4,8 +4,9 @@ import logo from '../logo.png';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Mail from "./MailComponent";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSync } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSync, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import eOrderType from '../shared/enums/eOrderType';
 
 class Home extends React.Component {
     constructor(props) {
@@ -14,12 +15,14 @@ class Home extends React.Component {
             startDate: null,
             endDate: null,
             mails: this.props.mails,
-            dateFilteredMails : this.props.mails,
-            searchMsg: ""
+            dateFilteredMails: this.props.mails,
+            searchMsg: "",
+            order: eOrderType.normal
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.resetDate = this.resetDate.bind(this);
+        this.changeOrder = this.changeOrder.bind(this);
     }
 
     setStartDate(date) {
@@ -27,8 +30,8 @@ class Home extends React.Component {
     }
 
     setEndDate(date) {
-        this.setState({ endDate: date }, ()=> {
-            if(this.state.startDate != null) {
+        this.setState({ endDate: date }, () => {
+            if (this.state.startDate != null) {
                 let startTime = this.state.startDate.getTime();
                 let endTime = this.state.endDate.getTime();
                 let mailResults = this.props.mails.filter((mail) => {
@@ -36,7 +39,7 @@ class Home extends React.Component {
                     return mailDate >= startTime && mailDate < endTime
                 })
                 console.log(mailResults);
-                this.setState({mails: mailResults , dateFilteredMails: mailResults});
+                this.setState({ mails: mailResults, dateFilteredMails: mailResults });
             }
         });
     }
@@ -45,21 +48,25 @@ class Home extends React.Component {
             startDate: null,
             endDate: null,
         })
-        if(this.state.searchMsg === "") this.setState({mails: this.props.mails})
+        if (this.state.searchMsg === "") this.setState({ mails: this.props.mails })
     }
 
+    changeOrder() {
+        if (this.state.order === eOrderType.normal) this.setState({ order: eOrderType.reverse, mails: this.state.mails.reverse() });
+        else this.setState({ order: eOrderType.normal, mails: this.state.mails.reverse() })
+    }
     handleChange(e) {
         let searchMessage = e.target.value;
-        this.setState({ searchMsg: searchMessage})
-        if(this.state.startDate ===null || this.state.endDate === null) {
-            let mailResults = this.props.mails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1 || mail.body.indexOf(searchMessage)!== -1);
-            this.setState({mails: mailResults});
-            if(searchMessage === "") this.setState({mails: this.props.mails});
+        this.setState({ searchMsg: searchMessage })
+        if (this.state.startDate === null || this.state.endDate === null) {
+            let mailResults = this.props.mails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1 || mail.body.indexOf(searchMessage) !== -1);
+            this.setState({ mails: mailResults });
+            if (searchMessage === "") this.setState({ mails: this.props.mails });
         }
         else {
-            let mailResults = this.state.dateFilteredMails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1 || mail.body.indexOf(searchMessage)!== -1);
-            this.setState({mails: mailResults});
-            if(searchMessage === "") this.setState({mails: this.state.dateFilteredMails});
+            let mailResults = this.state.dateFilteredMails.filter((mail) => mail.subject.indexOf(searchMessage) !== -1 || mail.body.indexOf(searchMessage) !== -1);
+            this.setState({ mails: mailResults });
+            if (searchMessage === "") this.setState({ mails: this.state.dateFilteredMails });
         }
     }
 
@@ -120,7 +127,7 @@ class Home extends React.Component {
                             <span className="email-from">From</span>
                             <span className="email-to">To</span>
                             <span className="email-sub">Subject</span>
-                            <span className="email-date">Date</span>
+                            <span className="email-date" onClick={this.changeOrder}>Date {this.state.order === eOrderType.normal ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</span>
                         </div>
                         <div>
                             <Mail mails={this.state.mails} />

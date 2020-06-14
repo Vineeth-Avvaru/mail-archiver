@@ -1,0 +1,67 @@
+.middle-container {
+    margin: 40px;
+    height: calc(100vh - 120px);
+}
+
+.filter-container {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+.results-bar {
+    width: calc(100% - 40px);
+    height: 5vh;
+    border-bottom: 1px solid #BCB5B5;
+    margin-bottom: 0;
+}
+
+.logo-container {
+    height: calc(85vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.app-logo {
+    display: block;
+    align-self: center;
+}
+
+.mails-container {
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.mails-header {
+    width: 100%;
+    background-color: #F4F3F2;
+    display: flex;
+    font-weight: 600;
+    color: #595959;
+    padding: 10px;
+    border-bottom: 1px solid #BCB5B5;
+}
+
+.email-from, .email-to {
+    width: 20%;
+}
+
+.email-sub {
+    width: 50%;
+}
+
+.email-date {
+    width: 10%;
+}
+
+.refresh-icon {
+    color: #BCB5B5 ;
+}
+
+.refresh-icon:hover {
+    cursor: pointer;
+    color: black;
+}

@@ -26,7 +26,7 @@ class Main extends React.Component {
             <div className="main-container">
                 <div className="header-container"></div>
                 <Switch>
-                    <Route exact path="/mails" component={() => <Home mails={this.props.mails} />} />
+                    <Route exact path="/mails" component={() => <Home/>} />
                     <Route path="/mails/:mailIndex" component={MailWithIndex} />
                     <Redirect to="/mails" />
                 </Switch>

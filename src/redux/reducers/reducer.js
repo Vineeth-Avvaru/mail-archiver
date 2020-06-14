@@ -1,5 +1,7 @@
 import Mails from "../../shared/mails";
 import eOrderType from "../../shared/enums/eOrderType";
+import * as ActionTypes from '../ActionTypes'
+
 
 export const initialState = {
     mails: Mails,
@@ -11,5 +13,16 @@ export const initialState = {
 
 export const Reducer = (state = initialState, action) => {
 
-    return state;
+    switch(action.type) {
+        case ActionTypes.CHANGE_MAIL_ORDER:
+            if (state.order === eOrderType.normal){
+                return {...state, order: eOrderType.reverse, mails: state.mails.reverse()}
+            }
+            else {
+                return {...state, order: eOrderType.normal, mails: state.mails.reverse()}
+            }
+    
+        default:
+            return state
+    }
 }

@@ -1,0 +1,1 @@
+export const CHANGE_MAIL_ORDER = 'CHANGE_MAIL_ORDER';

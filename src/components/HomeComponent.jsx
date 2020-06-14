@@ -7,6 +7,19 @@ import Mail from "./MailComponent";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import eOrderType from '../shared/enums/eOrderType';
+import { connect } from "react-redux";
+import { changeMailOrder } from "../redux/ActionCreators";
+
+const mapStateToProps = state => {
+    return {
+        mails: state.mails,
+        order: state.order
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    changeMailOrder: ()=> {dispatch(changeMailOrder())}
+})
 
 class Home extends React.Component {
     constructor(props) {
@@ -22,7 +35,6 @@ class Home extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.resetDate = this.resetDate.bind(this);
-        this.changeOrder = this.changeOrder.bind(this);
     }
 
     setStartDate(date) {
@@ -51,10 +63,6 @@ class Home extends React.Component {
         if (this.state.searchMsg === "") this.setState({ mails: this.props.mails })
     }
 
-    changeOrder() {
-        if (this.state.order === eOrderType.normal) this.setState({ order: eOrderType.reverse, mails: this.state.mails.reverse() });
-        else this.setState({ order: eOrderType.normal, mails: this.state.mails.reverse() })
-    }
     handleChange(e) {
         let searchMessage = e.target.value;
         this.setState({ searchMsg: searchMessage })
@@ -116,8 +124,8 @@ class Home extends React.Component {
                     </div>
                 </div>
 
-                <h3 className="results-bar">Results: {this.state.mails.length} mail(s)</h3>
-                {this.state.mails.length === 0 ?
+                <h3 className="results-bar">Results: {this.props.mails.length} mail(s)</h3>
+                {this.props.mails.length === 0 ?
                     <div className="logo-container">
                         <img src={logo} className="app-logo" alt="mail-archiver-logo" />
                     </div>
@@ -127,10 +135,10 @@ class Home extends React.Component {
                             <span className="email-from">From</span>
                             <span className="email-to">To</span>
                             <span className="email-sub">Subject</span>
-                            <span className="email-date" onClick={this.changeOrder}>Date {this.state.order === eOrderType.normal ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</span>
+                            <span className="email-date" onClick={this.props.changeMailOrder}>Date {this.props.order === eOrderType.normal ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</span>
                         </div>
                         <div>
-                            <Mail mails={this.state.mails} />
+                            <Mail mails={this.props.mails} />
                         </div>
 
                     </div>
@@ -140,4 +148,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default (connect(mapStateToProps, mapDispatchToProps)(Home));

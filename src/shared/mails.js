@@ -37,7 +37,7 @@ const Mails = [
         subject: "This is to inform you guys that you are winner for the lucky draw",
         date: "05/12/2020 10:45",
         body: "Hurrayyy!! It's lucky time!!",
-        attachment: true
+        attachment: false
     },
     {
         from: "bali@example.com",
@@ -45,7 +45,7 @@ const Mails = [
         subject: "Credit Card Offers",
         date: "05/10/2020 01:45",
         body: "Very Less time to apply of the new offers!",
-        attachment: false
+        attachment: true
     }
 ];
 

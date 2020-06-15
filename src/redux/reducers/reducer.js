@@ -25,7 +25,21 @@ export const Reducer = (state = initialState, action) => {
             }
 
         case ActionTypes.SET_START_DATE:
-            return { ...state, startDate: action.payload }
+            state =  { ...state, startDate: action.payload };
+            if(state.endDate != null) {
+                let startTime = state.startDate.getTime();
+                let endTime = state.endDate.getTime();
+                let mailResults = state.searchFilteredMails.filter((mail) => {
+                    let mailDate = new Date(mail.date).getTime();
+                    return mailDate >= startTime && mailDate < endTime
+                })
+                let dateFilterMails = Mails.filter((mail) => {
+                    let mailDate = new Date(mail.date).getTime();
+                    return mailDate >= startTime && mailDate < endTime
+                })
+                state = {...state, mails: mailResults, dateFilteredMails: dateFilterMails };
+            }
+            return state;
 
         case ActionTypes.SET_END_DATE:
             state = { ...state, endDate: action.payload }

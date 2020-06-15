@@ -21,7 +21,7 @@ function Mail(props) {
                     </span>
                 <span className="email-badge-body">
                     {archivedMail.to.length !== 1
-                        ? <span><Badge color="secondary"><FontAwesomeIcon icon={faPlus} /><i className="badge-text">{archivedMail.to.length}</i></Badge></span>
+                        ? <span><Badge color="secondary"><FontAwesomeIcon icon={faPlus} /><i className="badge-text">{archivedMail.to.length-1}</i></Badge></span>
                         : <span></span>
                     }
                 </span>

@@ -5,11 +5,53 @@
 
 .filter-container {
     height: 10vh;
+    width: calc(100% - 40px);
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
 }
+
+.date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.date-picker {
+    align-self: center;
+    margin-right: 20px;
+}
+.refresh-icon {
+    color: #BCB5B5 ;
+    align-self: center;
+}
+
+.refresh-icon:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.search-container {
+    align-self: center;
+}
+
+.search-bar {
+    margin-right: 20px;
+}
+
+.search-icon {
+    color: #BCB5B5 ;
+    align-self: center;
+    margin-right: 20px;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+    color: black;
+}
+
 .results-bar {
     width: calc(100% - 40px);
     height: 5vh;
@@ -61,11 +103,6 @@
     cursor: pointer;
 }
 
-.refresh-icon {
-    color: #BCB5B5 ;
-}
-
-.refresh-icon:hover {
-    cursor: pointer;
-    color: black;
+.place-icon {
+    font-family: fontawesome;
 }

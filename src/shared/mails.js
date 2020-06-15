@@ -9,7 +9,7 @@ const Mails = [
     },
     {
         from: "jingping@example.com",
-        to: ["ggg@example.com","ccc@example.com","ddd@example.com"],
+        to: ["ggg@example.com","ccc@example.com"],
         subject: "Travel Insurance ",
         date: "06/05/2020 17:50",
         body: "Taking Travel Insurance is always good for health and your loved ones",
@@ -25,7 +25,7 @@ const Mails = [
     },
     {
         from: "careworld@example.com",
-        to: ["grandma@example.com","ccc@example.com","ddd@example.com"],
+        to: ["grandma@example.com","ccc@example.com","ddd@example.com","charles@anon.com"],
         subject: "Time to retire",
         date: "05/26/2020 13:14",
         body: "Welcome to careworld!! The perfect paradise for retirement",

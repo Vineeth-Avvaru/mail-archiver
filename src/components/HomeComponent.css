@@ -73,8 +73,10 @@
 
 .mails-container {
     width: calc(100% - 40px);
+    height: calc(100% - 15vh);
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 .mails-header {
@@ -105,4 +107,30 @@
 
 .place-icon {
     font-family: fontawesome;
+}
+
+@media (max-width: 860px) {
+    .filter-container {
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .search-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .results-bar {
+        width: calc(100% - 15px);
+    }
+    .mails-container {
+        width: calc(100% - 15px);
+    }
+    .mails-content{
+        height: calc(100% - 5vh);
+        overflow-y: scroll;
+    }
 }

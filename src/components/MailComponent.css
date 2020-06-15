@@ -16,6 +16,7 @@
 .email-from-body, .email-to-body {
     width: 17.5%;
     overflow: hidden;
+    margin-right: 20px;
 }
 .email-badge-body {
     width: 5%;

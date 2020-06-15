@@ -77,6 +77,7 @@ class Home extends React.Component {
                         <FontAwesomeIcon icon={faSync} className="refresh-icon" onClick={this.props.resetDate} />
                     </div>
                     <div className="search-container">
+                        <div>
                         <input
                             type="text"
                             onChange={(event) => this.props.handleSearch(event.target.value)}
@@ -85,6 +86,7 @@ class Home extends React.Component {
                             placeholder="Search mail"
                             className="search-bar"
                         />
+                        </div>
                         <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={this.props.filterMails} />
                         <FontAwesomeIcon icon={faSync} className="refresh-icon"  onClick={this.props.resetSearch} />
                     </div>
@@ -103,7 +105,7 @@ class Home extends React.Component {
                             <span className="email-sub">Subject</span>
                             <span className="email-date" onClick={this.props.changeMailOrder}>Date {this.props.order === eOrderType.normal ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</span>
                         </div>
-                        <div>
+                        <div className="mails-content">
                             <Mail mails={this.props.mails} />
                         </div>
 

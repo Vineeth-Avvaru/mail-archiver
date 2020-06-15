@@ -102,6 +102,7 @@ class Home extends React.Component {
                         <div className="mails-header">
                             <span className="email-from">From</span>
                             <span className="email-to">To</span>
+                            <span className="for-badge"></span>
                             <span className="email-sub">Subject</span>
                             <span className="email-date" onClick={this.props.changeMailOrder}>Date {this.props.order === eOrderType.normal ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</span>
                         </div>

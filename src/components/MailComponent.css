@@ -1,3 +1,6 @@
+.show-mobile {
+    display: none;
+}
 .mail-body-container {
     width: 100%;
     display: flex;
@@ -7,6 +10,7 @@
     color: black;
 }
 .mail-body-container:hover {
+
     background-color: #F4F3F2;
     color: blue;
     cursor: pointer;
@@ -48,4 +52,69 @@
 
 .badge-secondary {
     font-size: 11px;
+}
+
+@media (max-width: 720px) {
+
+    .hide-mobile {
+        display: none;
+    }
+    .show-mobile {
+        display: initial;
+    }
+    .mail-body-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .mail-icon {
+        width: 15px;
+        height: auto;
+        align-self: center;
+    }
+    .mail-sp-icon{
+        align-self: center;
+        margin-right: 10px;
+    }
+    .non-subject-part {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+    }
+    .mobile-from-to-container{
+        width: 100%;
+    }
+    .arrow-icon {
+        width: 7px;
+        height: auto;
+        align-self: center;
+    }
+    .clip-icon {
+        align-self: center;
+    }
+    .mobile-email-date {
+        align-self: center;
+        margin-right: 10px;
+        margin-left: 10px ;
+    }
+    .mobile-email-from {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .mobile-email-to{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .badge-secondary {
+        font-size: 8px;
+    }
+    .badge-text {
+        font-style: normal;
+        font-size: 11px;
+    }
+    .email-from-text{
+        overflow: hidden;
+    }
 }

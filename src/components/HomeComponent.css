@@ -35,6 +35,8 @@
 
 .search-container {
     align-self: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .search-bar {
@@ -76,7 +78,7 @@
     height: calc(100% - 15vh);
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .mails-header {
@@ -90,7 +92,12 @@
 }
 
 .email-from, .email-to {
-    width: 20%;
+    width: 17.5%;
+    margin-right: 20px;
+}
+
+.for-badge {
+    width: 5%;
 }
 
 .email-sub {
@@ -119,7 +126,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         margin-top: 15px;
         margin-bottom: 15px;
     }

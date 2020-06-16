@@ -117,6 +117,7 @@
 
 .place-icon {
     font-family: fontawesome;
+    height: 28px;
 }
 
 @media (max-width: 860px) {
@@ -149,9 +150,6 @@
     .mails-header {
         display: initial;
     }
-    /* .for-badge {
-        display: none;
-    } */
     .email-from, .email-to, .email-sub {
         margin: 0;
         padding: 10px;
@@ -188,3 +186,10 @@
         margin-left: 20px;
     }
 }
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .place-icon {
+        height: 28px
+    }
+ }

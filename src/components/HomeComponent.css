@@ -142,7 +142,7 @@
     }
     .mails-content{
         height: calc(100% - 5vh);
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 }
 

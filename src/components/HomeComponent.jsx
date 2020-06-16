@@ -16,19 +16,19 @@ const mapStateToProps = state => {
         order: state.order,
         startDate: state.startDate,
         endDate: state.endDate,
-        searchMsg : state.searchMsg
+        searchMsg: state.searchMsg
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    changeMailOrder: ()=> {dispatch(changeMailOrder())},
-    setStartDate : (date) => {dispatch(setStartDate(date))},
-    setEndDate : (date) => {dispatch(setEndDate(date))},
-    resetDate : () => {dispatch(resetDate())},
-    handleSearch : (content) => {dispatch(handleSearch(content))},
-    filterMails : () => {dispatch(filterMails())},
-    onEnter: (keyStroke) => {dispatch(onEnter(keyStroke))},
-    resetSearch: () => {dispatch(resetSearch())}
+    changeMailOrder: () => { dispatch(changeMailOrder()) },
+    setStartDate: (date) => { dispatch(setStartDate(date)) },
+    setEndDate: (date) => { dispatch(setEndDate(date)) },
+    resetDate: () => { dispatch(resetDate()) },
+    handleSearch: (content) => { dispatch(handleSearch(content)) },
+    filterMails: () => { dispatch(filterMails()) },
+    onEnter: (keyStroke) => { dispatch(onEnter(keyStroke)) },
+    resetSearch: () => { dispatch(resetSearch()) }
 })
 
 class Home extends React.Component {
@@ -40,7 +40,7 @@ class Home extends React.Component {
                     <div className="date-container">
                         <div className="date-picker">
                             <DatePicker
-                                className = "place-icon"
+                                className="place-icon"
                                 placeholderText="&#xf073; START DATE"
                                 selected={this.props.startDate}
                                 onChange={date => this.props.setStartDate(date)}
@@ -52,13 +52,13 @@ class Home extends React.Component {
                                 todayButton="Today"
                                 startDate={this.props.startDate}
                                 endDate={this.props.endDate}
-                                maxDate={this.props.endDate === null ? new Date(): this.props.endDate}
+                                maxDate={this.props.endDate === null ? new Date() : this.props.endDate}
                             />
                         </div>
 
                         <div className="date-picker">
                             <DatePicker
-                                className = "place-icon"
+                                className="place-icon"
                                 placeholderText="&#xf073; END DATE"
                                 selected={this.props.endDate}
                                 onChange={date => this.props.setEndDate(date)}
@@ -76,19 +76,63 @@ class Home extends React.Component {
                         </div>
                         <FontAwesomeIcon icon={faSync} className="refresh-icon" onClick={this.props.resetDate} />
                     </div>
+                    <div className="mobile-date-container">
+                        <div className="mobile-date-container-display">
+                        <div className="mobile-date-picker">
+                            <DatePicker
+                                className="place-icon"
+                                placeholderText="&#xf073; START DATE"
+                                selected={this.props.startDate}
+                                onChange={date => this.props.setStartDate(date)}
+                                selectsStart
+                                peekNextMonth
+                                showMonthDropdown
+                                showYearDropdown
+                                dropdownMode="select"
+                                todayButton="Today"
+                                startDate={this.props.startDate}
+                                endDate={this.props.endDate}
+                                maxDate={this.props.endDate === null ? new Date() : this.props.endDate}
+                            />
+                        </div>
+
+                        <div className="mobile-end-date-picker">
+                        <div className="mobile-date-picker">
+                            <DatePicker
+                                className="place-icon"
+                                placeholderText="&#xf073; END DATE"
+                                selected={this.props.endDate}
+                                onChange={date => this.props.setEndDate(date)}
+                                selectsEnd
+                                peekNextMonth
+                                showMonthDropdown
+                                showYearDropdown
+                                dropdownMode="select"
+                                todayButton="Today"
+                                startDate={this.props.startDate}
+                                endDate={this.props.endDate}
+                                minDate={this.props.startDate}
+                                maxDate={new Date()}
+                            />
+                        </div>
+                        <FontAwesomeIcon icon={faSync} className="refresh-icon mobile-refresh-icon" onClick={this.props.resetDate} />
+                        </div>
+                        </div>
+                        
+                    </div>
                     <div className="search-container">
                         <div>
-                        <input
-                            type="text"
-                            onChange={(event) => this.props.handleSearch(event.target.value)}
-                            value={this.props.searchMsg}
-                            onKeyPress = {(e) => this.props.onEnter(e.key)}
-                            placeholder="Search mail"
-                            className="search-bar"
-                        />
+                            <input
+                                type="text"
+                                onChange={(event) => this.props.handleSearch(event.target.value)}
+                                value={this.props.searchMsg}
+                                onKeyPress={(e) => this.props.onEnter(e.key)}
+                                placeholder="Search mail"
+                                className="search-bar"
+                            />
                         </div>
                         <FontAwesomeIcon icon={faSearch} className="search-icon" onClick={this.props.filterMails} />
-                        <FontAwesomeIcon icon={faSync} className="refresh-icon"  onClick={this.props.resetSearch} />
+                        <FontAwesomeIcon icon={faSync} className="refresh-icon" onClick={this.props.resetSearch} />
                     </div>
                 </div>
 

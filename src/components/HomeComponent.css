@@ -12,6 +12,9 @@
     justify-content: space-between;
 }
 
+.mobile-date-container {
+    display: none;
+}
 .date-container {
     display: flex;
     flex-direction: row;
@@ -139,5 +142,32 @@
     .mails-content{
         height: calc(100% - 5vh);
         overflow-y: scroll;
+    }
+}
+
+@media (max-width: 470px) {
+    .filter-container{
+        height: 20vh;
+    }
+    .mails-container {
+        height: calc(100%-20vh);
+    }
+    .date-container{
+        display: none;
+    }
+    .mobile-date-container {
+        display: initial;
+    }
+    .mobile-date-container-display {
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-end-date-picker {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+    }
+    .mobile-refresh-icon {
+        margin-left: 20px;
     }
 }

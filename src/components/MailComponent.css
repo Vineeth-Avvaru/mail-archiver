@@ -115,6 +115,31 @@
         font-size: 11px;
     }
     .email-from-text{
+        align-self: center;
         overflow: hidden;
+    }
+    .mobile-email-from-date {
+        align-self: center;
+    }
+}
+
+@media (max-width: 425px) {
+    .mobile-email-from-date {
+        font-size: 12px;
+    }
+    .icon-clip {
+        height: 12px;
+        width: auto;
+    }
+    .arrow-icon {
+        height: 10px;
+        width: auto;
+    }
+    .mobile-email-from{
+        width: 100%;
+        overflow: hidden;
+    }
+    .email-from-text {
+        width: 60%;
     }
 }

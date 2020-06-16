@@ -47,7 +47,7 @@ function Mail(props) {
                         <div>
                             <div className="non-subject-part">
                                 <div className="mail-sp-icon">
-                                    <img src={mailIcon} className="mail-icon" />
+                                    <img src={mailIcon} className="mail-icon" alt="mail-icon" />
                                 </div>
                                 <div className="mobile-from-to-container">
                                     <div className="mobile-email-from">
@@ -65,7 +65,7 @@ function Mail(props) {
                                                 {mailMonth + " " + mailDay}
                                             </span>
                                             <span>
-                                                <img src={mobileArrowIcon} className="arrow-icon" />
+                                                <img src={mobileArrowIcon} className="arrow-icon" alt="arrow" />
                                             </span>
                                         </div>
                                     </div>
@@ -93,53 +93,6 @@ function Mail(props) {
                     </Link>
                 </div>
             </div>
-            // <Link key={index} to={`/mails/${index}`} className="mail-body-container">
-            //     <div className="mail-sp-icon">
-            //         <img src={mailIcon} />
-            //     </div>
-            //     <div className="email-from-body">
-            //         {archivedMail.from}
-            //         <span className="mobile-clip-icon">
-            //             {archivedMail.attachment
-            //                 ? <img src={clip_icon} className="icon-clip" alt="icon-clip" />
-            //                 : <div></div>
-            //             }
-            //         </span>
-            //         <span className="mobile-date">
-            //         {archivedMail.date}
-            //         </span>
-            //         <span className="mobile-arrow-icon">
-            //         <img src={mobileArrowIcon} />
-            //         </span>
-            //     </div>
-            //     <div className="email-to-body">
-            //         {archivedMail.to[0]}
-            //         {archivedMail.to.length !== 1
-            //             ? <span>, ... </span>
-            //             : <span></span>
-            //         }
-            //         <span className="mobile-badge">
-            //             {archivedMail.to.length !== 1
-            //                 ? <span><Badge color="secondary"><FontAwesomeIcon icon={faPlus} /><i className="badge-text">{archivedMail.to.length - 1}</i></Badge></span>
-            //                 : <span></span>
-            //             }
-            //         </span>
-            //     </div>
-            //     <span className="email-badge-body">
-            //         {archivedMail.to.length !== 1
-            //             ? <span><Badge color="secondary"><FontAwesomeIcon icon={faPlus} /><i className="badge-text">{archivedMail.to.length - 1}</i></Badge></span>
-            //             : <span></span>
-            //         }
-            //     </span>
-            //     <div className="email-sub-body">{archivedMail.subject}</div>
-            //     <span className="email-attachment-body">
-            //         {archivedMail.attachment
-            //             ? <img src={clip_icon} className="icon-clip" alt="icon-clip" />
-            //             : <div></div>
-            //         }
-            //     </span>
-            //     <span className="email-date-body">{archivedMail.date}</span>
-            // </Link>
         )
     })
     return (

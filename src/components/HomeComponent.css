@@ -145,6 +145,23 @@
     }
 }
 
+@media (max-width: 640px) {
+    .mails-header {
+        display: initial;
+    }
+    /* .for-badge {
+        display: none;
+    } */
+    .email-from, .email-to, .email-sub {
+        margin: 0;
+        padding: 10px;
+        border-right: 1px solid grey;
+    }
+    .email-date {
+        margin-left: 10px ;
+    }
+}
+
 @media (max-width: 470px) {
     .filter-container{
         height: 20vh;

@@ -39,7 +39,7 @@ function Mail(props) {
                                 : <div></div>
                             }
                         </span>
-                        <span className="email-date-body">{archivedMail.date}</span>
+                        <span className="email-date-body">{mailMonth + " " + mailDay}</span>
                     </Link>
                 </div>
                 <div className="show-mobile">
